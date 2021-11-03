@@ -1,0 +1,23 @@
+server:
+  port: 8081
+
+spring:
+  data:
+    mongodb:
+      #host: 34.205.100.14	
+      host: localhost
+      port: 27017
+
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    serviceUrl:
+     #defaultZone: http://localhost:8761/eureka/
+     #defaultZone: http://54.235.23.223:8761/eureka/
+      defaultZone: http://localhost:8761/eureka/
+      
+  instance:
+    preferIpAddress: true
+    metadataMap:
+      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${random.value}}}
